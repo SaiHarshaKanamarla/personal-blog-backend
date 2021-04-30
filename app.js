@@ -1,6 +1,6 @@
 const express = require('express');
 var app = express();
-const blogs = require('./routes/blogs');
+const blogRouter = require('./routes/blogs');
 const mongoose  = require('mongoose');
 var port = 8000;
 const cors = require('cors');
@@ -17,6 +17,6 @@ mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true,useCreate
     .catch(err => console.error('Something went wrong', err));
 
 app.use(express.json());
-app.use('/blogs', blogs);  
+app.use(blogRouter);  
 
 app.listen(port);
